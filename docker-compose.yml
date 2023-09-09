@@ -23,7 +23,7 @@ services:
             - /usr/src/app/node_modules
         restart: unless-stopped
         depends_on:
-            - postgres
+            - postgis
             - pgadmin
     staging:
         container_name: nestjs_api_stage
@@ -45,7 +45,7 @@ services:
             - /usr/src/app/node_modules
         restart: unless-stopped
         depends_on:
-            - postgres
+            - postgis
             - pgadmin
     production:
         container_name: nestjs_api_prod
@@ -67,11 +67,11 @@ services:
             - /usr/src/app/node_modules
         restart: unless-stopped
         depends_on:
-            - postgres
+            - postgis
             - pgadmin
-    postgres:
-        container_name: postgres
-        image: postgres:latest        
+    postgis:
+        container_name: postgis
+        image: postgis/postgis:latest        
         environment:
           POSTGRES_USER: ${DATABASE_USERNAME}
           POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -80,7 +80,7 @@ services:
         networks:
             - nesjs-network
         volumes:
-          - postgresdb:/var/lib/postgresql/data
+          - postgisdb:/var/lib/pgsql/data
         restart: unless-stopped
     pgadmin:
         container_name: pgadmin
@@ -97,4 +97,4 @@ services:
 networks:
     nesjs-network:
 volumes:
-    postgresdb:
+    postgisdb:
