@@ -28,6 +28,28 @@ Also create .env.development, .env.staging and .env.production at location './sr
 
 Please refer docker-compose.yml file for details.
 
+## Before running the app create database
+
+Database name as mentioned in environment file.
+
+```bash
+
+-- Database: db_changeit
+
+-- DROP DATABASE IF EXISTS db_changeit;
+
+CREATE DATABASE db_changeit
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+```
+
 ## Running the app
 
 If one have postgis i.e database setup already configured
@@ -71,6 +93,15 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Swagger UI
+
+Swagger UI allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources.
+
+```bash
+http://localhost:3000/docs
+```
+
 ## Typeorm Migrations
 
 [Typeorm Migrations](https://typeorm.io/migrations) Please refer to understand migrations

@@ -7,7 +7,7 @@ import {
 
 export const setupSwagger = (app: INestApplication) => {
   const options = new DocumentBuilder()
-    .setTitle('Nestjs Application')
+    .setTitle('Nestjs Blue Sky Application')
     .setDescription('API description')
     .setVersion('1.0')
     .addBearerAuth(
