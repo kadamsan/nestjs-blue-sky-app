@@ -3,7 +3,7 @@
 ###################
 
 # Base image for development
-FROM node:12.19.0-alpine3.9 As development
+FROM node:18.17.1-alpine3.17 As development
 
 # Dockerfile ARG values. ARG is set in Compose file under the build key
 ARG NODE_ENV
@@ -30,7 +30,7 @@ COPY . .
 # BUILD FOR STAGING, PRODUCTION
 ###################
 
-FROM node:12.19.0-alpine3.9 As build
+FROM node:18.17.1-alpine3.17 As build
 
 WORKDIR /usr/src/app
 
@@ -64,7 +64,7 @@ USER node
 ###################
 
 # Base image for staging
-FROM node:12.19.0-alpine3.9 As staging
+FROM node:18.17.1-alpine3.17 As staging
 
 # Dockerfile ARG values. ARG is set in Compose file under the build key
 ARG NODE_ENV
@@ -85,7 +85,7 @@ CMD [ "node", "dist/main.js" ]
 ###################
 
 # Base image for production
-FROM node:18-alpine As production
+FROM node:18.17.1-alpine3.17 As production
 
 # Dockerfile ARG values. ARG is set in Compose file under the build key
 ARG NODE_ENV
