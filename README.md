@@ -100,7 +100,10 @@ Swagger UI allows anyone â€” be it your development team or your end consumers â
 
 ```bash
 http://localhost:3000/docs
+
 ```
+Look for blue sky section in swagger UI for API
+
 ## Project Documentation
 
 [Compodoc](https://compodoc.app/) is a documentation tool for Angular applications. Since Nest and Angular share similar project and code structures, Compodoc works with Nest applications as well.
