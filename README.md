@@ -101,6 +101,17 @@ Swagger UI allows anyone — be it your development team or your end consumers �
 ```bash
 http://localhost:3000/docs
 ```
+## Project Documentation
+
+[Compodoc](https://compodoc.app/) is a documentation tool for Angular applications. Since Nest and Angular share similar project and code structures, Compodoc works with Nest applications as well.
+
+Generation
+```bash
+$ npx @compodoc/compodoc -p tsconfig.json -s
+```
+[See the official documentation](https://compodoc.app/guides/usage.html) for more options.
+
+Open your browser and navigate to http://localhost:8080
 
 ## Typeorm Migrations
 
@@ -116,6 +127,37 @@ $ npm run typeorm:migration:generate
 $ npm run typeorm:migration:run
 
 ```
+
+## Import GeoJSON to PostGIS:
+
+[Ogr2ogr](https://gdal.org/programs/ogr2ogr.html) is the swiss-army knife when it comes to conversion of GIS data. It is part of the Geospatial Data Abstraction Library and provides an easy way to convert data between common storage formats: GeoJSON, Shapefile, PostGIS and others.
+
+For install and how to import GeoJSON to PostGIS, Please refer the links
+
+[GDAL](https://mapscaping.com/installing-gdal-for-beginners/) Please refer to understand installion
+
+[Import GeoJSON to PostGIS](https://morphocode.com/using-ogr2ogr-convert-data-formats-geojson-postgis-esri-geodatabase-shapefiles/) Please refer to import
+
+```bash
+# Import GeoJSON to PostGIS (Command Line)
+$ C:\OSGeo4W\bin>ogr2ogr -f "PostgreSQL" PG:"dbname=your-database-name user=your-username password=mypassword" /path/to/jour/GeoJSon/file -nln table-name -append
+```
+
+## Hosting Application
+
+Two ways to deploy application
+
+1. [phusionpassenger](https://www.phusionpassenger.com/)
+
+Passenger® is an app server that runs and automanages your web apps with ease. Also improves security, reliability and scalability.
+
+[Deploying a Node.js app on a Linux/Unix production server](https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/ownserver/nginx/oss/trusty/deploy_app.html)
+
+2. [Kubernetes](https://kubernetes.io/)
+
+Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+[Deploy a Container Web App on Amazon EKS](https://aws.amazon.com/tutorials/deploy-webapp-eks/) One can use Kubernetes (k8s) from any cloud provider.
 
 
 ## Support

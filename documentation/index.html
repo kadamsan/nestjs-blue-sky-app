@@ -1,0 +1,212 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>nestjs-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="./" class="navbar-brand">nestjs-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
+
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+
+<h2>Description</h2>
+<p><a href="https://github.com/nestjs/nest">Nest</a> Framework TypeScript.</p>
+<h2>Installation</h2>
+<div><pre class="line-numbers"><code class="language-bash">$ npm install</code></pre></div><h2>Environment variable configuration</h2>
+<p>Create .env file at root folder, please refer .env.sample at the same location. It is requried by docker-compose.yml file while spining postgis and pgadmin.</p>
+<p>Also create .env.development, .env.staging and .env.production at location &#39;./src/shared/config/env/&#39;, please refer .env.sample at the same location. It is requried by docker-compose.yml file.</p>
+<p>Please refer docker-compose.yml file for details.</p>
+<h2>Before running the app create database</h2>
+<p>Database name as mentioned in environment file.</p>
+<div><pre class="line-numbers"><code class="language-bash">
+-- Database: db_changeit
+
+-- DROP DATABASE IF EXISTS db_changeit;
+
+CREATE DATABASE db_changeit
+    WITH
+    OWNER = postgres
+    ENCODING = &#39;UTF8&#39;
+    LC_COLLATE = &#39;English_United States.1252&#39;
+    LC_CTYPE = &#39;English_United States.1252&#39;
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+</code></pre></div><h2>Running the app</h2>
+<p>If one have postgis i.e database setup already configured</p>
+<div><pre class="line-numbers"><code class="language-bash"># development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod</code></pre></div><h2>Running the app using docker</h2>
+<p><a href="https://docs.docker.com/">Docker</a> is an open platform for developing, shipping, and running applications.</p>
+<p>The applcation is also spining up local postgis server with docker-compose along with pgadmin.</p>
+<div><pre class="line-numbers"><code class="language-bash"># development
+$ docker-compose up development -d
+
+# staging
+$ docker-compose up staging -d
+
+# production mode
+$ docker-compose up production -d</code></pre></div><h2>Test</h2>
+<div><pre class="line-numbers"><code class="language-bash"># unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov</code></pre></div><h2>Swagger UI</h2>
+<p>Swagger UI allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources.</p>
+<div><pre class="line-numbers"><code class="language-bash">http://localhost:3000/docs</code></pre></div><h2>Project Documentation</h2>
+<p><a href="https://compodoc.app/">Compodoc</a> is a documentation tool for Angular applications. Since Nest and Angular share similar project and code structures, Compodoc works with Nest applications as well.</p>
+<p>Generation</p>
+<div><pre class="line-numbers"><code class="language-bash">$ npx &#64;compodoc/compodoc -p tsconfig.json -s</code></pre></div><p><a href="https://compodoc.app/guides/usage.html">See the official documentation</a> for more options.</p>
+<p>Open your browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a></p>
+<h2>Typeorm Migrations</h2>
+<p><a href="https://typeorm.io/migrations">Typeorm Migrations</a> Please refer to understand migrations</p>
+<p>If any changes in database i.e entities, please execute typeorm migration:generate it will generate migration scripts. </p>
+<div><pre class="line-numbers"><code class="language-bash"># generate scripts
+$ npm run typeorm:migration:generate
+
+# run scripts
+$ npm run typeorm:migration:run
+</code></pre></div><h2>Import GeoJSON to PostGIS:</h2>
+<p><a href="https://gdal.org/programs/ogr2ogr.html">Ogr2ogr</a> is the swiss-army knife when it comes to conversion of GIS data. It is part of the Geospatial Data Abstraction Library and provides an easy way to convert data between common storage formats: GeoJSON, Shapefile, PostGIS and others.</p>
+<p>For install and how to import GeoJSON to PostGIS, Please refer the links</p>
+<p><a href="https://mapscaping.com/installing-gdal-for-beginners/">GDAL</a> Please refer to understand installion</p>
+<p><a href="https://morphocode.com/using-ogr2ogr-convert-data-formats-geojson-postgis-esri-geodatabase-shapefiles/">Import GeoJSON to PostGIS</a> Please refer to import</p>
+<div><pre class="line-numbers"><code class="language-bash"># Import GeoJSON to PostGIS (Command Line)
+$ C:\OSGeo4W\bin&gt;ogr2ogr -f &quot;PostgreSQL&quot; PG:&quot;dbname=your-database-name user=your-username password=mypassword&quot; /path/to/jour/GeoJSon/file -nln table-name -append</code></pre></div><h2>Hosting Application</h2>
+<p>Two ways to deploy application</p>
+<ol>
+<li><a href="https://www.phusionpassenger.com/">phusionpassenger</a></li>
+</ol>
+<p>Passenger® is an app server that runs and automanages your web apps with ease. Also improves security, reliability and scalability.</p>
+<p><a href="https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/ownserver/nginx/oss/trusty/deploy_app.html">Deploying a Node.js app on a Linux/Unix production server</a></p>
+<ol start="2">
+<li><a href="https://kubernetes.io/">Kubernetes</a></li>
+</ol>
+<p>Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+<p><a href="https://aws.amazon.com/tutorials/deploy-webapp-eks/">Deploy a Container Web App on Amazon EKS</a> One can use Kubernetes (k8s) from any cloud provider.</p>
+<h2>Support</h2>
+<p>Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you&#39;d like to join them, please <a href="https://docs.nestjs.com/support">read more here</a>.</p>
+<ul>
+<li>Website - <a href="https://nestjs.com/">https://nestjs.com</a></li>
+</ul>
+<h2>License</h2>
+<p>Nest is <a href="LICENSE">MIT licensed</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
