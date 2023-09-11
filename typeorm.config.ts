@@ -9,7 +9,7 @@ export default new DataSource({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
-  database: 'nest_blue_sky',
+  database: 'nest_blue_sky_test',
   username: 'postgres',
   password: 'postgres',
   entities: ['dist/**/*.entity.{ts,js}'],
